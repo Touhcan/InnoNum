@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using InnoNum.Model.Services;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 
@@ -6,8 +7,14 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
 });
+builder.Services.AddTransient<IPerfectNumberService, PerfectNumberService>();
 
 var app = builder.Build();
+
+var perfectNumberApi = app.MapGroup("/api/v1/perfectNumber");
+
+perfectNumberApi.MapGet("/", (IPerfectNumberService perfectNumberService) =>
+    perfectNumberService.CountPerfectNumbersBetween(0, 1));
 
 var sampleTodos = new Todo[] {
     new(1, "Walk the dog"),
