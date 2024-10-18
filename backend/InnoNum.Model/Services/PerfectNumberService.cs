@@ -2,8 +2,8 @@ namespace InnoNum.Model.Services;
 
 public class PerfectNumberService : IPerfectNumberService
 {
-    public int CountPerfectNumbersBetween(int minimum, int maximum)
+    public PerfectNumberCount CountPerfectNumbersBetween(int minimum, int maximum)
     {
-        return 0;
+        return new(0);
     }
 }
