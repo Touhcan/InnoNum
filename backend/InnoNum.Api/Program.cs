@@ -12,6 +12,9 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 });
 builder.Services.AddTransient<IPerfectNumberService, PerfectNumberService>();
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 var app = builder.Build();
 
 var perfectNumberApi = app.MapGroup("/api/v1/perfectNumber");
