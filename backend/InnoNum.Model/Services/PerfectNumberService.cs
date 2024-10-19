@@ -13,6 +13,24 @@ public class PerfectNumberService : IPerfectNumberService
 
     public PerfectNumberCount CountPerfectNumbersBetween(int minimum, int maximum)
     {
+        if (minimum >= maximum)
+        {
+            _logger.LogError(
+                "Invalid argument: {minimum} >= {maximum}",
+                minimum, maximum);
+            throw new ArgumentOutOfRangeException(
+                $"{nameof(minimum)} needs to be less than {nameof(maximum)}");
+        }
+
+        if (minimum <= 0 || maximum <= 0)
+        {
+            _logger.LogError(
+                "One argument is <= 0: minimum: {minimum}, maximum: {maximum}",
+                minimum, maximum);
+            throw new ArgumentOutOfRangeException(
+                "All arguments need to be greater than 0");
+        }
+
         var count = 0;
         for (var number = minimum; number < maximum; number++)
         {
@@ -34,6 +52,7 @@ public class PerfectNumberService : IPerfectNumberService
                 }
             }
         }
+
         return new(count);
     }
 }
