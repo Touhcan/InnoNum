@@ -1,0 +1,11 @@
+
+/* TODO - figure out var() and defining a global primary color */
+
+button {
+  padding: 10px;
+  border: solid 1px cornflowerblue;
+  background: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+}
+
