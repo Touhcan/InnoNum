@@ -20,8 +20,8 @@ var app = builder.Build();
 var perfectNumberApi = app.MapGroup("/api/v1/perfectNumber");
 
 perfectNumberApi.MapGet("/",
-        (int min, int max, IPerfectNumberService perfectNumberService) =>
-            perfectNumberService.CountPerfectNumbersBetween(min, max));
+    (int min, int max, IPerfectNumberService perfectNumberService) =>
+        perfectNumberService.CountPerfectNumbersBetween(min, max));
 
 app.Run();
 
