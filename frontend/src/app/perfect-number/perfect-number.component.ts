@@ -11,7 +11,9 @@ import { PerfectNumberService } from '../perfect-number.service';
   styleUrl: './perfect-number.component.css'
 })
 export class PerfectNumberComponent {
-  service: PerfectNumberService = inject(PerfectNumberService);
+  perfectNumberCount = '';
+
+  service = inject(PerfectNumberService);
 
   boundsForm = new FormGroup({
     minimum: new FormControl(''),
@@ -19,10 +21,10 @@ export class PerfectNumberComponent {
   });
 
   submitPerfectNumberRequest() {
-    const min = this.boundsForm.value.minimum;
-    const max = this.boundsForm.value.maximum;
-    this.service.getPerfectNumbersBetween(1, 10).then(({count}) =>
-      console.log(`c: ${count}`)
+    const min = +(this.boundsForm.value.minimum ?? 0);
+    const max = +(this.boundsForm.value.maximum ?? 0);
+    this.service.getPerfectNumbersBetween(min, max).subscribe(perfectNumberCount =>
+      this.perfectNumberCount = perfectNumberCount.count.toString()
     );
   }
 }
