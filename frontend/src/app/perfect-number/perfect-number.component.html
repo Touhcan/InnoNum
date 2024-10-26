@@ -1,0 +1,8 @@
+<section>
+  <form [formGroup]="boundsForm" (submit)="submitPerfectNumberRequest()">
+    <input type="text" placeholder="Minimum" formControlName="minimum" />
+    <input type="text" placeholder="Maximum" formControlName="maximum" />
+    <button type="submit">Go</button>
+  </form>
+  <p>Output</p>
+</section>

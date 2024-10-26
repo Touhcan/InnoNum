@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ButtonComponent } from './button.component';
+import { PerfectNumberComponent } from './perfect-number.component';
 
-describe('ButtonComponent', () => {
-  let component: ButtonComponent;
-  let fixture: ComponentFixture<ButtonComponent>;
+describe('PerfectNumberComponent', () => {
+  let component: PerfectNumberComponent;
+  let fixture: ComponentFixture<PerfectNumberComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonComponent]
+      imports: [PerfectNumberComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ButtonComponent);
+    fixture = TestBed.createComponent(PerfectNumberComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
