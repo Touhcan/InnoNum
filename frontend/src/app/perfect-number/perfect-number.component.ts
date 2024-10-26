@@ -21,7 +21,7 @@ export class PerfectNumberComponent {
   submitPerfectNumberRequest() {
     const min = this.boundsForm.value.minimum;
     const max = this.boundsForm.value.maximum;
-    this.service.getPerfectNumbersBetween(0, 1).then(({count}) =>
+    this.service.getPerfectNumbersBetween(1, 10).then(({count}) =>
       console.log(`c: ${count}`)
     );
   }

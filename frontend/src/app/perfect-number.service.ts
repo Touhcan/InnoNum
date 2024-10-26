@@ -5,7 +5,7 @@ import { PerfectNumberCount } from './perfect-number-count';
   providedIn: 'root'
 })
 export class PerfectNumberService {
-  url = "http://localhost:8080/api/v1/perfectNumbers?";
+  url = "http://localhost:8080/api/v1/perfectNumber?";
 
   constructor() { }
 
