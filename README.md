@@ -47,6 +47,8 @@ on the correct ports.
 
 ## Things left to do
 
+* Cancellable requests.
+* Progress updates for long running calculations.
 * A CI config for GitHub.
 * An optimized perfect number calculation algorithm.
 * A prettier frontend.
