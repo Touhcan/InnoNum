@@ -11,7 +11,7 @@ import { PerfectNumberService } from '../perfect-number.service';
   styleUrl: './perfect-number.component.css'
 })
 export class PerfectNumberComponent {
-  perfectNumberCount = '';
+  feedback = 'Calculate the amount of perfect numbers!';
 
   service = inject(PerfectNumberService);
 
@@ -23,8 +23,14 @@ export class PerfectNumberComponent {
   submitPerfectNumberRequest() {
     const min = +(this.boundsForm.value.minimum ?? 0);
     const max = +(this.boundsForm.value.maximum ?? 0);
-    this.service.getPerfectNumbersBetween(min, max).subscribe(perfectNumberCount =>
-      this.perfectNumberCount = perfectNumberCount.count.toString()
-    );
+    this.service.getPerfectNumbersBetween(min, max).subscribe({
+      next: perfectNumberCount => {
+        this.feedback = "The amount of perfect numbers between "
+          + `${min} and ${max} is ${perfectNumberCount.count}.`;
+      },
+      error: error => {
+        this.feedback = `Invalid input: ${error.error}.`;
+      },
+    });
   }
 }

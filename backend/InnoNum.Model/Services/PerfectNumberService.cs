@@ -28,7 +28,7 @@ public class PerfectNumberService : IPerfectNumberService
                 "One argument is <= 0: minimum: {minimum}, maximum: {maximum}",
                 minimum, maximum);
             throw new ArgumentException(
-                "All arguments need to be greater than 0");
+                "all arguments need to be greater than 0");
         }
 
         var count = 0;

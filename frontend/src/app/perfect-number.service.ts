@@ -15,11 +15,6 @@ export class PerfectNumberService {
   constructor() { }
 
   getPerfectNumbersBetween(min: number, max: number): Observable<PerfectNumberCount> {
-    const url = this.url + new URLSearchParams({
-      min: min.toString(),
-      max: max.toString(),
-    });
-
     return this.http.get<PerfectNumberResponse>(this.url, {
       params: { min: min, max: max },
     }).pipe(
