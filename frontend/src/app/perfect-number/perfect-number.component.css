@@ -1,20 +1,25 @@
 
+* {
+  font-family: sans;
+}
+
 input {
   padding: 5px;
   margin: 5px;
-  border: 0.5px solid darkcyan;
+  border: 0.5px solid grey;
   border-radius: 5px;
 }
 
 button {
   padding: 5px;
-  background-color: azure;
-  border: 0.5px solid darkcyan;
+  background-color: lightgrey;
+  border: 0.5px solid grey;
   border-radius: 5px;
 }
 
 button:hover {
-  background-color: darkcyan;
+  background-color: grey;
+  color: white;
   cursor: pointer;
 }
 
