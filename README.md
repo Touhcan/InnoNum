@@ -42,7 +42,7 @@ The frontend connects to the backend on
 `localhost:5218` per default.  The backend
 includes a CORS policy which only allows
 origins from `localhost:4200`.
-Make sure that both applications are running
+Make sure that both applications are using
 on the correct ports.
 
 ## Things left to do
