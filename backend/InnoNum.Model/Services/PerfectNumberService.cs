@@ -18,7 +18,7 @@ public class PerfectNumberService : IPerfectNumberService
             _logger.LogError(
                 "Invalid argument: {minimum} >= {maximum}",
                 minimum, maximum);
-            throw new ArgumentOutOfRangeException(
+            throw new ArgumentException(
                 $"{nameof(minimum)} needs to be less than {nameof(maximum)}");
         }
 
@@ -27,7 +27,7 @@ public class PerfectNumberService : IPerfectNumberService
             _logger.LogError(
                 "One argument is <= 0: minimum: {minimum}, maximum: {maximum}",
                 minimum, maximum);
-            throw new ArgumentOutOfRangeException(
+            throw new ArgumentException(
                 "All arguments need to be greater than 0");
         }
 

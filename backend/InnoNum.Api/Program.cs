@@ -35,12 +35,23 @@ var perfectNumberApi = app.MapGroup("/api/v1/perfectNumber");
 
 perfectNumberApi.MapGet("/",
     (int min, int max, IPerfectNumberService perfectNumberService) =>
-        perfectNumberService.CountPerfectNumbersBetween(min, max))
-    .RequireCors(corsApiPolicy);
+    {
+        try
+        {
+            return Results.Ok(
+                perfectNumberService.CountPerfectNumbersBetween(min, max));
+        }
+        catch (ArgumentException ex)
+        {
+            return Results.BadRequest(ex.Message);
+        }
+    }).RequireCors(corsApiPolicy);
+
 
 app.Run();
 
 [JsonSerializable(typeof(PerfectNumberCount))]
+[JsonSerializable(typeof(string))]
 internal partial class PerfectNumberContext : JsonSerializerContext
 {
 }
