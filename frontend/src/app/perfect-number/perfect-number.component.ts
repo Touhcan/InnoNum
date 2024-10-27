@@ -29,7 +29,11 @@ export class PerfectNumberComponent {
           + `${min} and ${max} is ${perfectNumberCount.count}.`;
       },
       error: error => {
-        this.feedback = `Invalid input: ${error.error}.`;
+        if (error.status === 400) {
+          this.feedback = `Invalid input: ${error.error}.`;
+        } else {
+          this.feedback = error.message;
+        }
       },
     });
   }
