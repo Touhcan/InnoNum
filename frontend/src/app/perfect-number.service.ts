@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PerfectNumberService {
-  url = "http://localhost:8080/api/v1/perfectNumber";
+  url = "http://localhost:5218/api/v1/perfectNumber";
 
   http = inject(HttpClient);
 

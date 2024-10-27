@@ -34,9 +34,16 @@ install.  It was developed and tested with
 **Angular v18**.
 
 ```sh
-$ cd frontend/
-$ npm start run
+$ cd frontend
+$ npm run start
 ```
+
+The frontend connects to the backend on
+`localhost:5218` per default.  The backend
+includes a CORS policy which only allows
+origins from `localhost:4200`.
+Make sure that both applications are running
+on the correct ports.
 
 ## Things left to do
 
