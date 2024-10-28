@@ -28,14 +28,14 @@ public class PerfectNumberServiceUnitTest
     [Fact]
     public void MinimumNeedsToBeLessThanMaximum()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() =>
+        Assert.Throws<ArgumentException>(() =>
             _service.CountPerfectNumbersBetween(10, 1));
     }
 
     [Fact]
     public void AllArgumentsNeedToBeGreaterThanZero()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() =>
+        Assert.Throws<ArgumentException>(() =>
             _service.CountPerfectNumbersBetween(-10, 0));
     }
 }

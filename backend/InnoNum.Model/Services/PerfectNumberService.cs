@@ -32,27 +32,38 @@ public class PerfectNumberService : IPerfectNumberService
         }
 
         var count = 0;
+
         for (var number = minimum; number < maximum; number++)
         {
-            using (_logger.BeginScope("Current number: {number}", number))
+            if (IsPerfectNumber(number))
             {
-                var sum = 0;
-                for (var divisor = 1; divisor < number - 1; divisor++)
-                {
-                    if (number % divisor == 0)
-                    {
-                        _logger.LogInformation("Found correct divisor: {divisor}", divisor);
-                        sum += divisor;
-                    }
-                }
-                if (sum == number)
-                {
-                    _logger.LogInformation("Number is perfect (sum: {sum})", sum);
-                    count++;
-                }
+                count++;
             }
         }
 
         return new(count);
+    }
+
+    private bool IsProperDivisor(int number, int divisor)
+    {
+        return number % divisor == 0;
+    }
+
+    private int SumProperDivisors(int number)
+    {
+        var count = 0;
+        for (var i = 1; i < number - 1; i++)
+        {
+            if (IsProperDivisor(number, i))
+            {
+                count += i;
+            }
+        }
+        return count;
+    }
+
+    private bool IsPerfectNumber(int number)
+    {
+        return SumProperDivisors(number) == number;
     }
 }
