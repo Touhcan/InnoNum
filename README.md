@@ -43,7 +43,7 @@ The frontend connects to the backend on
 includes a CORS policy which only allows
 origins from `localhost:4200`.
 Make sure that both applications are using
-on the correct ports.
+the correct ports.
 
 ## Things left to do
 
